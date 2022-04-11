@@ -1,46 +1,40 @@
-# Dark Mode Coding Challenge 🌙 &nbsp; ![medium](https://img.shields.io/badge/-Medium-yellow) ![time](https://img.shields.io/badge/%E2%8F%B0-30m-blue)
+### Meeting Availability Problem
 
-&nbsp;
+The goal is to find available time ranges within a schedule of events.
 
-# Goals / Outcomes ✨
+The schedule is an array of events, which contain a `start` and `end` field.
 
-- Using state and global state
-- DOM manipulation
+```js
+const events = [
+  {
+    start: "2017-02-21T12:00:00-05:00",
+    end: "2017-02-21T12:30:00-05:00",
+  },
+  {
+    start: "2017-02-21T14:00:00-05:00",
+    end: "2017-02-21T16:00:00-05:00",
+  },
+];
 
-&nbsp;
+const start = moment("2017-02-21T08:00:00-05:00");
+const end = moment("2017-02-21T18:00:00-05:00");
 
-# Pre-requisites ✅
-
-None
-
-&nbsp;
-
-# Requirements 📖
-
-- Add dark-mode switching functionality to the _existing_ dark-mode button
-  - Utilise the _existing_ dark-mode scss file by adding a `dark-mode` class to the root `html` element
-- When in Dark mode:
-  - The button icon should be `faSun`
-  - The button icon colour should be `(#FFA500)`. You can use the `color` prop on the `Icon` component.
-
-&nbsp;
-
-# Think about 💡
-
-- How we would use Dark mode on other potential routes/components in a bigger application. Would your solution work for this?
-- How we can apply a class to the `html` DOM element
-
-&nbsp;
-
-# What's Already Been Done 🏁
-
-- Basic app UI (mobile responsive)
-- Dark mode and light mode styles/themes
-
-&nbsp;
-
-# Screenshots 🌄
-
-&nbsp;
-![screenshot-light](https://puu.sh/Fq13d/04a9e5ad48.png)
-![screenshot-dark](https://puu.sh/Ilwao/795ef304a2.png)
+const freeSlots = findFreeTimes(start, end, 30, events);
+/**
+ * Outputs
+ * [
+ *   {
+ *     "start": "2017-02-21T08:00:00-05:00",
+ *     "end": "2017-02-21T12:00:00-05:00"
+ *   },
+ *   {
+ *     "start": "2017-02-21T12:30:00-05:00",
+ *     "end": "2017-02-21T14:00:00-05:00"
+ *   },
+ *   {
+ *     "start": "2017-02-21T16:00:00-05:00",
+ *     "end": "2017-02-21T18:00:00-05:00"
+ *   }
+ * ]
+ */
+```
