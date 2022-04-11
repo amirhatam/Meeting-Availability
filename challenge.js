@@ -10,15 +10,18 @@ function findFreeTimes(start, end, duration, events) {
 
     // Get meeting has been fixed
 
-    events.map((e) => {
-        let eventStart = e.start
-        let eventEnd = e.end
+    /*  events.map((e) => {
+         let eventStart = e.start
+         let eventEnd = e.end
+ 
+         if (moment(eventStart).isAfter(start) && moment(eventStart).isBefore(end)) {
+             let eventFixed = { start: eventStart, end: eventEnd }
+             eventsFixed.push(eventFixed)
+         }
+     }) */
 
-        if (moment(eventStart).isAfter(start) && moment(eventStart).isBefore(end)) {
-            let eventFixed = { start: eventStart, end: eventEnd }
-            eventsFixed.push(eventFixed)
-        }
-    })
+    // SHORT WAY
+    events.map(e => moment(e.start).isAfter(start) && moment(e.start).isBefore(end) ? eventsFixed.push({ start: e.start, end: e.end }) : null)
 
     return eventsFixed;
 }
