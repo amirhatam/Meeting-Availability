@@ -1,0 +1,22 @@
+{
+  "name": "meeting-availability",
+  "version": "1.0.0",
+  "description": "&nbsp;",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirhatam/Meeting-Availability.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amirhatam/Meeting-Availability/issues"
+  },
+  "homepage": "https://github.com/amirhatam/Meeting-Availability#readme",
+  "dependencies": {
+    "moment": "^2.29.2"
+  }
+}
