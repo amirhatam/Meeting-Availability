@@ -20,10 +20,29 @@ function findFreeTimes(start, end, duration, events) {
          }
      }) */
 
-    // SHORT WAY
+    //OR SHORT WAY
     events.map(e => moment(e.start).isAfter(start) && moment(e.start).isBefore(end) ? eventsFixed.push({ start: e.start, end: e.end }) : null)
 
-    return eventsFixed;
+
+    let previousEnd = []
+
+    eventsFixed.map((e, i) => { //find free times
+        let eventStart = e.start;
+        let eventEnd = e.end;
+
+        if ((moment(eventStart).diff(start) > durationMS) && i === 0) {
+            freeTimes.push({ start: start, end: eventStart });
+            previousEnd = eventEnd;
+        } else if ((moment(eventStart).diff(moment(previousEnd)) > durationMS)) {
+            freeTimes.push({ start: previousEnd, end: eventStart });
+            previousEnd = eventEnd;
+        } else {
+            previousEnd = eventEnd;
+        }
+
+    })
+
+    return freeTimes;
 }
 
 module.exports = { findFreeTimes }
