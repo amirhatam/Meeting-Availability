@@ -42,7 +42,7 @@ function findFreeTimes(start, end, duration, events) {
 
     })
 
-    // Get last free time with condition(Ternary)
+    // Get last puzzle of free time with condition(Ternary)
     moment(end).diff(previousEnd) ? freeTimes.push({ start: previousEnd, end: end }) : null
 
     return freeTimes;
